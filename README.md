@@ -1,2 +1,2 @@
 # my-dotfiles
-my dotfiles
+my waybar and hyprland dotfiles
