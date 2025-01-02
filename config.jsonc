@@ -7,7 +7,7 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "custom/hyprlock",
+        "custom/lockscreen",
 //        "custom/appmenu",
         "hyprland/workspaces"
 //        "sway/workspaces",
@@ -16,7 +16,7 @@
 //        "custom/media"
     ],
     "modules-center": [
-        "custom/hyprlock",
+        "custom/lockscreen",
 //        "custom/appmenu",
         "custom/firefox",
         "custom/dolphin",
@@ -31,11 +31,11 @@
         "memory",
         "pulseaudio",
 //        "temperature",
-//        "backlight",
 //        "keyboard-state",
 //        "sway/language",
         "battery",
 //        "battery#bat2",
+        "backlight",
         "clock"
 //        "tray",
 //        "custom/power"
@@ -58,10 +58,10 @@
     //     }
     // },
 
-    "custom/hyprlock": {
-        "format": "  ^_^  ",
+    "custom/lockscreen": {
+        "format": "   ^_^   ",
         "tooltip-format": "system",
-        "on-click": "hyprlock"
+        "on-click": "swaylock -i ~/.local/share/wallpapers/forest.jpg --no-unlock-indicator"
     },
     "custom/appmenu": {
 //        "format": "󰣇 ",
@@ -173,7 +173,8 @@
     "backlight": {
         // "device": "acpi_video1",
         "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "on-click": "brightnessctl set 1%-"
     },
     "battery": {
         "states": {
@@ -207,16 +208,18 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
 //        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-wifi": "⬇{bandwidthDownBytes} ⬆{bandwidthUpBytes}",
+	"format-wifi": "{ipaddr}/{cidr}  ",
+//        "format-wifi": "⬇{bandwidthDownBytes} ⬆{bandwidthUpBytes}",
         "interval": 1,
-        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-ethernet": "⬇{bandwidthDownBytes} ⬆{bandwidthUpBytes}",
+//        "format-ethernet": "{ipaddr}/{cidr} ",
 //        "tooltip-format": "{ifname} via {gwaddr} ",
-        "tooltip-format": "  {essid} ({signalStrength}%) {ipaddr}/{cidr}",
+        "tooltip-format": "  {essid} ({signalStrength}%) ⬇{bandwidthDownBytes} ⬆{bandwidthUpBytes}",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
 //        "format-alt": "{ifname}: {ipaddr}/{cidr}"
-        "min-length": 17,
-        "max-length": 17
+//        "min-length": 18,
+//        "max-length": 18
     },
     "pulseaudio": {
          "scroll-step": 0.2, // %, can be a float

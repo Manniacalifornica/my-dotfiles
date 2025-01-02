@@ -53,12 +53,13 @@ button:hover {
 #network:hover,
 #memory:hover,
 #battery:hover,
+#backlight:hover,
 #clock:hover,
 #pulseaudio:hover {
     background-color: #a37800;
 }
 
-#custom-hyprlock:hover,
+#custom-lockscreen:hover,
 #custom-appmenu:hover,
 #custom-firefox:hover,
 #custom-dolphin:hover,
